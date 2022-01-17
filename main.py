@@ -50,8 +50,8 @@ def traceback(mat):
     
     while(i > 0 or j > 0):
         if (mat[i][j] == mat[i - 1][j - 1] + score(seq_a[i - 1], seq_b[j - 1])):
-            align_a += seq_a[i]
-            align_b += seq_b[j]
+            align_a += seq_a[i - 1]
+            align_b += seq_b[j - 1]
             i -= 1
             j -= 1
         elif (mat[i][j] == mat[i - 1][j] + penalty):
@@ -62,7 +62,7 @@ def traceback(mat):
             align_a += "-"
             align_b += seq_b[i - 1]
             j -= 1
-    return align_a, align_b
+    return align_a[::-1], align_b[::-1]
 
 
 def needleman_wunsch():
