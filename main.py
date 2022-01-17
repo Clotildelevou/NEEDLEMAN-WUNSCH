@@ -24,7 +24,7 @@ def score(a, b):
         return penalty
 
 def fill_cell(mat, i, j):
-        match = mat[i][j] + score(seq_a[i - 1], seq_b[j - 1])
+        match = mat[i - 1][j - 1] + score(seq_a[i - 1], seq_b[j - 1])
         delete = mat[i - 1][j] + penalty
         insert = mat[i][j - 1] + penalty
         mat[i][j] = max(match, delete, insert)
